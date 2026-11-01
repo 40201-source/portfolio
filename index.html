@@ -1,0 +1,1252 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pink Diary — Ivy's Creative World | Portfólio de TI</title>
+  <meta name="description"
+    content="Pink Diary: Portfólio pessoal e criativo de Ivy Oliveira, estudante de Tecnologia da Informação. Projetos reais de jogos, interfaces e desenvolvimento front-end com estética cute pastel e scrapbook.">
+  <meta name="author" content="Ivy Oliveira">
+  <meta name="theme-color" content="#741F43">
+
+  <!-- Open Graph / Meta Compartilhamento -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Pink Diary — Ivy's Creative World">
+  <meta property="og:description"
+    content="Portfólio de Ivy Oliveira: estudante de TI, desenvolvimento web, jogos autorais e projetos criativos.">
+  <meta property="og:image" content="assets/mascot/pinky_card.jpg">
+
+  <!-- Google Fonts: Quicksand (títulos), Inter (leitura legível), Patrick Hand (scrapbook/notas manuscritas) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Patrick+Hand&family=Quicksand:wght@500;600;700&display=swap"
+    rel="stylesheet">
+
+  <!-- Folha de Estilos Principal -->
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- =========================================================================
+       BARRA DE NAVEGAÇÃO SUPERIOR (HEADER)
+       ========================================================================= -->
+  <header class="site-header" id="header">
+    <div class="header-container">
+
+      <!-- Logo / Marca do Pink Diary -->
+      <a href="#hero" class="brand-link" aria-label="Ir para o início do Pink Diary">
+        <span class="brand-bow">
+          <svg width="24" height="16" viewBox="0 0 100 60" fill="currentColor">
+            <path
+              d="M50 30 C25 10 10 25 15 38 C20 46 42 36 50 32 Z M50 30 C75 10 90 25 85 38 C80 46 58 36 50 32 Z M46 32 C40 45 30 52 24 58 L34 52 L40 58 C44 48 48 34 48 34 Z M54 32 C60 45 70 52 76 58 L66 52 L60 58 C56 48 52 34 52 34 Z" />
+            <ellipse cx="50" cy="31" rx="7" ry="6" />
+          </svg>
+        </span>
+        <div class="brand-text-group">
+          <span class="brand-title">Pink Diary</span>
+          <span class="brand-tag">Ivy's Creative World</span>
+        </div>
+      </a>
+
+      <!-- Menu de Navegação Principal -->
+      <nav class="main-nav" id="main-nav" aria-label="Navegação principal">
+        <ul class="nav-list">
+          <li><a href="#sobre-mim" class="nav-link">Sobre Mim</a></li>
+          <li><a href="#projetos" class="nav-link">Projetos</a></li>
+          <li><a href="#processo" class="nav-link">Processo Criativo</a></li>
+          <li><a href="#contato" class="nav-link">Contato</a></li>
+        </ul>
+      </nav>
+
+      <!-- Ações do Cabeçalho: Conquistas, Easter Egg e Menu Mobile -->
+      <div class="header-actions">
+        <!-- Botão Conquistas Secretas -->
+        <button type="button" class="btn-achievements" id="btn-open-achievements"
+          title="Minhas Conquistas do Diário 🏆" aria-label="Abrir galeria de conquistas">
+          <span class="trophy-icon">🏆</span>
+          <span class="achievements-badge-count" id="achievements-count-badge">0/9</span>
+        </button>
+
+        <!-- Coração Interativo com Easter Egg -->
+        <button type="button" class="btn-heart-egg" id="btn-heart-easter-egg"
+          title="Clique várias vezes para um segredinho ♡" aria-label="Segredo do diário">
+          <span class="heart-icon" id="header-heart-icon">♡</span>
+          <span class="heart-sparkle">✦</span>
+          <span class="sr-only">Ativar Easter Egg</span>
+        </button>
+
+        <!-- Botão Menu Mobile (Hambúrguer) -->
+        <button type="button" class="btn-menu-toggle" id="btn-menu-toggle" aria-expanded="false"
+          aria-controls="main-nav" aria-label="Abrir menu de navegação">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </button>
+      </div>
+
+    </div>
+
+    <!-- Fita Marcadora de Leitura do Diário (Scroll Progress Ribbon & Bow Charm) -->
+    <div class="diary-scroll-ribbon-track" id="diary-scroll-ribbon" aria-hidden="true">
+      <div class="diary-scroll-ribbon-bar" id="diary-scroll-bar"></div>
+      <div class="diary-scroll-ribbon-charm" id="diary-scroll-charm">
+        <span class="ribbon-charm-bow">🎀</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- =========================================================================
+       TRANSIÇÃO DE TELA DE DIÁRIO MÁGICO (PAGE TURN TRANSITION)
+       Transição visual autoral de passagem de página entre seções do Pink Diary
+       ========================================================================= -->
+  <div class="diary-transition-overlay" id="diary-transition-overlay" aria-hidden="true">
+    
+    <!-- Aba Esquerda do Diário (Folha com Textura e Washi Tape) -->
+    <div class="diary-door door-left">
+      <div class="diary-door-paper">
+        <div class="diary-door-lines"></div>
+        <div class="diary-door-washi washi-corner-tl"></div>
+        <div class="diary-door-washi washi-corner-bl"></div>
+      </div>
+      <div class="diary-door-seam seam-left"></div>
+    </div>
+
+    <!-- Aba Direita do Diário (Folha com Textura e Washi Tape) -->
+    <div class="diary-door door-right">
+      <div class="diary-door-paper">
+        <div class="diary-door-lines"></div>
+        <div class="diary-door-washi washi-corner-tr"></div>
+        <div class="diary-door-washi washi-corner-br"></div>
+      </div>
+      <div class="diary-door-seam seam-right"></div>
+    </div>
+
+    <!-- Selo Central Encantado (Adesivo de Scrapbook com Laço de Fita) -->
+    <div class="diary-transition-stamp" id="diary-transition-stamp">
+      <div class="stamp-glow-layer"></div>
+      <div class="stamp-card">
+        <div class="stamp-tape-top"></div>
+        <div class="stamp-bow-icon" aria-hidden="true">
+          <svg width="44" height="26" viewBox="0 0 100 60" fill="currentColor">
+            <path
+              d="M50 30 C25 10 10 25 15 38 C20 46 42 36 50 32 Z M50 30 C75 10 90 25 85 38 C80 46 58 36 50 32 Z M46 32 C40 45 30 52 24 58 L34 52 L40 58 C44 48 48 34 48 34 Z M54 32 C60 45 70 52 76 58 L66 52 L60 58 C56 48 52 34 52 34 Z" />
+            <ellipse cx="50" cy="31" rx="7" ry="6" />
+          </svg>
+        </div>
+        <div class="stamp-text-container">
+          <span class="stamp-sub-tag">✦ Pink Diary ✦</span>
+          <h3 class="stamp-target-title" id="diary-transition-title">Carregando...</h3>
+          <span class="stamp-hint-text">virando a página do diário...</span>
+        </div>
+        <div class="stamp-sparkles" aria-hidden="true">
+          <span class="sparkle sp-1">✨</span>
+          <span class="sparkle sp-2">♡</span>
+          <span class="sparkle sp-3">★</span>
+          <span class="sparkle sp-4">🎀</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <main id="main-content">
+
+    <!-- =======================================================================
+         SEÇÃO 1 — HERO
+         ======================================================================= -->
+    <section class="section-hero" id="hero">
+      <div class="hero-bg-decorations" aria-hidden="true">
+        <span class="decor-star star-1 parallax-decor" data-parallax-speed="0.18">✦</span>
+        <span class="decor-star star-2 parallax-decor" data-parallax-speed="-0.12">★</span>
+        <span class="decor-star star-3 parallax-decor" data-parallax-speed="0.22">✦</span>
+        <span class="decor-heart heart-1 parallax-decor" data-parallax-speed="-0.15">♡</span>
+        <span class="decor-heart heart-2 parallax-decor" data-parallax-speed="0.14">♥</span>
+        <div class="washi-tape-strip top-left-tape parallax-decor" data-parallax-speed="0.05"></div>
+      </div>
+
+      <div class="container hero-grid">
+
+        <!-- Coluna de Texto: Apresentação Principal -->
+        <div class="hero-content reveal-on-scroll reveal-slide-left">
+          <div class="hero-tag-badge">
+            <span class="tag-pin">📌</span>
+            <span class="tag-text">Portfólio de TI // Diário Criativo #01</span>
+          </div>
+
+          <h1 class="hero-name">
+            Ivy Oliveira
+            <span class="hero-name-sub">Estudante de TI, criando meu próprio universo digital.</span>
+          </h1>
+
+          <p class="hero-description">
+            Entre códigos, ideias e projetos, estou descobrindo novas formas de transformar criatividade em experiências
+            digitais.
+          </p>
+
+          <!-- Badges de Interesses Reais -->
+          <div class="hero-pills" aria-label="Áreas de exploração">
+            <span class="hero-pill">💻 Desenvolvimento Web</span>
+            <span class="hero-pill">🎮 Criação de Jogos</span>
+            <span class="hero-pill">✨ Design & Estética</span>
+            <span class="hero-pill">🎀 Scrapbook & Código</span>
+          </div>
+
+          <!-- Botões de Ação -->
+          <div class="hero-cta-group">
+            <a href="#projetos" class="btn btn-primary" id="btn-hero-projects">
+              <span>Conhecer meus projetos</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M5 12h14M12 5l7 7-7 7" />
+              </svg>
+            </a>
+            <a href="#sobre-mim" class="btn btn-secondary" id="btn-hero-about">
+              <span>Um pouco sobre mim</span>
+              <span class="btn-heart-mark">♡</span>
+            </a>
+          </div>
+
+          <!-- Nota de Status Atual -->
+          <div class="hero-status-note">
+            <span class="status-dot"></span>
+            <span class="status-text">Status: <strong>codando, aprendendo & tirando ideias do papel ✦</strong></span>
+          </div>
+        </div>
+
+        <!-- Coluna Visual: Composição Asimétrica com Mascote Pinky -->
+        <div class="hero-visual reveal-on-scroll reveal-slide-right">
+          <div class="scrapbook-hero-card" id="hero-card-pinky">
+            <div class="washi-tape hero-card-tape"></div>
+
+            <div class="polaroid-frame">
+              <div class="polaroid-image-wrapper">
+                <img src="assets/mascot/pinky_card.jpg"
+                  alt="Ilustração do gatinho mascote Pinky em estilo scrapbook cute pastel" class="polaroid-img"
+                  id="hero-pinky-img">
+                <div class="polaroid-sticker ribbon-sticker" title="Laço fofo">
+                  <svg width="34" height="20" viewBox="0 0 100 60" fill="#741F43">
+                    <path
+                      d="M50 30 C25 10 10 25 15 38 C20 46 42 36 50 32 Z M50 30 C75 10 90 25 85 38 C80 46 58 36 50 32 Z M46 32 C40 45 30 52 24 58 L34 52 L40 58 C44 48 48 34 48 34 Z M54 32 C60 45 70 52 76 58 L66 52 L60 58 C56 48 52 34 52 34 Z" />
+                    <ellipse cx="50" cy="31" rx="7" ry="6" fill="#8A254F" />
+                  </svg>
+                </div>
+              </div>
+
+              <div class="polaroid-caption">
+                <span class="polaroid-title">Pinky & Ivy</span>
+                <span class="polaroid-handwritten">"bem-vindo ao meu cantinho! ♡"</span>
+              </div>
+            </div>
+
+            <!-- Balão de Fala do Mascote -->
+            <div class="hero-mascot-bubble" id="hero-speech-bubble" role="status">
+              <span class="bubble-text" id="hero-speech-text">Oi! Clica em mim pra gente conversar! ♡</span>
+              <span class="bubble-arrow"></span>
+            </div>
+
+            <!-- Mini Cartão de Anotação Scrapbook -->
+            <div class="scrapbook-sticky-note note-angle">
+              <span class="note-pin">📎</span>
+              <p class="handwritten-note">
+                Trabalho autoral de TI • feito com HTML, CSS e JavaScript puro!
+              </p>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         SEÇÃO 2 — SOBRE MIM
+         ======================================================================= -->
+    <section class="section-about" id="sobre-mim">
+      <!-- Elementos Decorativos Flutuantes de Scrapbook (Parallax Delicado) -->
+      <div class="about-bg-decorations" aria-hidden="true">
+        <span class="scrap-decor scrap-bow-1 parallax-decor" data-parallax-speed="0.14">🎀</span>
+        <span class="scrap-decor scrap-pin-1 parallax-decor" data-parallax-speed="-0.09">📌</span>
+        <span class="scrap-decor scrap-sparkle-1 parallax-decor" data-parallax-speed="0.18">✨</span>
+        <span class="scrap-decor scrap-heart-1 parallax-decor" data-parallax-speed="-0.14">♡</span>
+      </div>
+
+      <div class="container">
+
+        <div class="section-header reveal-on-scroll">
+          <div class="section-tag">
+            <span>Caderno de Anotações</span>
+          </div>
+          <h2 class="section-title">Oi, eu sou a Ivy ♡</h2>
+          <p class="section-subtitle">
+            Um pouquinho sobre quem eu sou, o que estou construindo e o que me inspira na tecnologia.
+          </p>
+        </div>
+
+        <div class="about-grid">
+
+          <!-- Card 1: Avatar e Identidade -->
+          <article class="about-card profile-card reveal-on-scroll delay-1">
+            <div class="washi-tape tape-top-right parallax-decor" data-parallax-speed="-0.06"></div>
+
+            <div class="profile-avatar-container">
+              <div class="profile-avatar-frame scroll-float-avatar">
+                <img src="assets/ivy_avatar.jpg" alt="Avatar ilustrado de Ivy Oliveira com caderno de sketches e código"
+                  class="profile-avatar-img">
+              </div>
+              <span class="avatar-caption-tag"></span>
+            </div>
+
+            <div class="profile-info">
+              <h3 class="profile-name">Ivy Oliveira</h3>
+              <p class="profile-role">Estudante de Tecnologia da Informação (TI)</p>
+              <div class="profile-bio-text">
+                <p>
+                  Sou a Ivy, estudante de TI e criadora de projetos que misturam tecnologia, criatividade e ideias que
+                  quero tirar do papel. Este espaço reúne um pouco do que venho construindo e aprendendo.
+                </p>
+                <p>
+                  Gosto de explorar como linhas de código podem se transformar em jogos de suspense, lojas temáticas ou
+                  aventuras com escolhas interativas. Cada projeto é uma oportunidade de aprender algo novo na prática.
+                </p>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 2: Meus Interesses -->
+          <article class="about-card interests-card reveal-on-scroll delay-2">
+            <div class="card-icon-header">
+              <span class="card-emoji-icon">🎀</span>
+              <h3 class="card-heading">Meus Interesses</h3>
+            </div>
+            <p class="card-desc">
+              Áreas do desenvolvimento que mais despertam minha curiosidade e vontade de criar:
+            </p>
+            <ul class="interests-checklist">
+              <li>
+                <span class="check-box">✓</span>
+                <div>
+                  <strong>Desenvolvimento Front-End:</strong>
+                  <span>Construir layouts com personalidade própria, sem ficar presa a templates genéricos.</span>
+                </div>
+              </li>
+              <li>
+                <span class="check-box">✓</span>
+                <div>
+                  <strong>Criação de Jogos & Narrativas:</strong>
+                  <span>Mecânicas de suspense, interfaces de monitoramento, árvores de diálogo e finais
+                    alternativos.</span>
+                </div>
+              </li>
+              <li>
+                <span class="check-box">✓</span>
+                <div>
+                  <strong>Estética Cute, Retrô & Scrapbook:</strong>
+                  <span>Harmonizar paletas suaves, ilustrações originais e detalhes delicados com código
+                    funcional.</span>
+                </div>
+              </li>
+              <li>
+                <span class="check-box">✓</span>
+                <div>
+                  <strong>Atenção aos Detalhes:</strong>
+                  <span>Microanimações, som atmosférico, transições suaves e acessibilidade visual.</span>
+                </div>
+              </li>
+            </ul>
+          </article>
+
+          <!-- Card 3: O Que Estou Aprendendo & Explorando -->
+          <article class="about-card learning-card reveal-on-scroll delay-3">
+            <div class="card-icon-header">
+              <span class="card-emoji-icon">💡</span>
+              <h3 class="card-heading">O Que Estou Explorando</h3>
+            </div>
+            <p class="card-desc">
+              Temas que estudo e aplico ativamente nos meus projetos reais:
+            </p>
+            <div class="learning-tags-grid">
+              <div class="learning-item">
+                <span class="item-title">JavaScript Puro (Vanilla JS)</span>
+                <span class="item-desc">Manipulação de DOM, estados de jogo, sintetizadores de áudio e lógica de
+                  eventos.</span>
+              </div>
+              <div class="learning-item">
+                <span class="item-title">HTML5 Semântico & Acessibilidade</span>
+                <span class="item-desc">Estruturação organizada, suporte a leitores de tela e respeito a movimento
+                  reduzido.</span>
+              </div>
+              <div class="learning-item">
+                <span class="item-title">CSS3 Moderno & Responsividade</span>
+                <span class="item-desc">Flexbox, CSS Grid, variáveis customizadas, animações fluidas e efeitos
+                  CRT/retrô.</span>
+              </div>
+              <div class="learning-item">
+                <span class="item-title">Arquitetura de Interfaces</span>
+                <span class="item-desc">Equilíbrio entre contraste visual, ritmo de leitura e identidade autoral.</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 4: Filosofia do Pink Diary (Scrapbook Post-it) -->
+          <article class="about-card philosophy-card reveal-on-scroll delay-4 scroll-tilt-card">
+            <div class="washi-tape tape-top-center parallax-decor" data-parallax-speed="0.05"></div>
+            <span class="pin-badge">📌 Bilhete do Diário</span>
+            <blockquote class="handwritten-quote">
+              "A tecnologia pode ser colorida"
+            </blockquote>
+            <div class="quote-signature">
+              <span>— Ivy Oliveira ♡</span>
+              <small class="editable-hint"></small>
+            </div>
+          </article>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         SEÇÃO 3 — PROJETOS (OS TRÊS PROJETOS REAIS DA IVY)
+         ======================================================================= -->
+    <section class="section-projects" id="projetos">
+      <div class="container">
+
+        <div class="section-header reveal-on-scroll">
+          <div class="section-tag">
+            <span>Galeria de Trabalhos Reais</span>
+          </div>
+          <h2 class="section-title">Feitos com ideias e algumas linhas de código ♡</h2>
+          <p class="section-subtitle">
+            Três experiências completas publicadas pela Ivy, cada uma preservando sua própria atmosfera, gênero e
+            proposta visual.
+          </p>
+        </div>
+
+        <!-- Trilha de Descoberta dos Projetos (Scrapbook Rail) -->
+        <div class="projects-discovery-rail" id="projects-discovery-rail" aria-hidden="true">
+          <div class="discovery-rail-line">
+            <div class="discovery-rail-indicator" id="discovery-rail-indicator"></div>
+          </div>
+          <div class="discovery-milestones">
+            <div class="discovery-milestone active" data-target="card-turno" id="milestone-turno" title="Turno da Madrugada">
+              <span class="milestone-icon">📹</span>
+              <span class="milestone-badge">01 // CFTV</span>
+            </div>
+            <div class="discovery-milestone" data-target="card-chioriya" id="milestone-chioriya" title="Chioriya Boutique">
+              <span class="milestone-icon">👗</span>
+              <span class="milestone-badge">02 // Vitrine</span>
+            </div>
+            <div class="discovery-milestone" data-target="card-reigen" id="milestone-reigen" title="Consultoria Reigen">
+              <span class="milestone-icon">🔮</span>
+              <span class="milestone-badge">03 // Paranormal</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="projects-gallery">
+
+          <!-- ===================================================================
+               PROJETO 1 — TURNO DA MADRUGADA (DESTAQUE CFTV / HORROR)
+               =================================================================== -->
+          <article class="project-card project-cctv-card reveal-on-scroll" id="card-turno">
+            <div class="project-cctv-bezel">
+
+              <!-- Cabeçalho OSD do Projeto -->
+              <div class="cctv-card-header">
+                <div class="cctv-badge-group">
+                  <span class="cctv-rec-dot"></span>
+                  <span class="cctv-rec-text">REC</span>
+                  <span class="cctv-sep">|</span>
+                  <span class="cctv-cam-tag">CAM 01 // VIGILÂNCIA NOTURNA</span>
+                </div>
+                <div class="cctv-time-tag">03:00:00 AM</div>
+              </div>
+
+              <!-- Visualização da Câmera / Mídia -->
+              <div class="cctv-screen-viewport">
+                <img src="assets/projects/turno_cam1.jpg"
+                  alt="Captura de tela real do jogo Turno da Madrugada mostrando feed da câmera 01 de circuito de segurança"
+                  class="project-img cctv-feed-img" id="cctv-preview-img">
+                <div class="crt-scanline-layer" aria-hidden="true"></div>
+                <div class="crt-vignette-layer" aria-hidden="true"></div>
+
+                <!-- Retículo Tático Decorativo -->
+                <div class="cctv-reticle-overlay" aria-hidden="true">
+                  <div class="reticle-box"></div>
+                </div>
+
+                <!-- Botões para alternar preview de câmeras -->
+                <div class="cctv-cam-switchers" aria-label="Alternar prévia de câmeras">
+                  <button type="button" class="btn-cam-switch active" data-src="assets/projects/turno_cam1.jpg"
+                    data-name="CAM 01 — CORREDOR">CAM 1</button>
+                  <button type="button" class="btn-cam-switch" data-src="assets/projects/turno_shadow.jpg"
+                    data-name="CAM 01 — SOMBRA DETECTADA">CAM 1 [ANOMALIA]</button>
+                  <button type="button" class="btn-cam-switch" data-src="assets/projects/turno_cam2.jpg"
+                    data-name="CAM 02 — ADMINISTRAÇÃO">CAM 2</button>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- Conteúdo Descritivo do Projeto 1 -->
+            <div class="project-info cctv-info-panel">
+              <div class="project-category-badge category-horror">
+                <span>🎮 Horror Psicológico // Sistema CFTV</span>
+              </div>
+
+              <h3 class="project-title cctv-title-text">Turno da Madrugada</h3>
+
+              <p class="project-description">
+                Experiência imersiva de terror psicológico simulando uma central de monitoramento em circuito fechado de
+                TV. Você assume o posto às 03:00 e precisa alternar entre as 5 câmeras do complexo, identificar
+                presenças anômalas nas sombras, recalibrar o sinal e sobreviver até às 04:00 da manhã.
+              </p>
+
+              <!-- Recursos Reais Verificados -->
+              <div class="verified-features-box cctv-features">
+                <span class="box-label">RECURSOS REAIS VERIFICADOS NO SITE:</span>
+                <ul class="features-list">
+                  <li><strong>Central de CFTV com 5 Câmeras:</strong> Corredor, Administração, Subsolo, Quarto 4 e
+                    Central.</li>
+                  <li><strong>Mecânica de Anomalias:</strong> Identificação de sombras e criaturas com botão de
+                    reportar.</li>
+                  <li><strong>Instabilidade de Sistema:</strong> Medidor de tensão, alarmes falsos e logs em tempo real.
+                  </li>
+                  <li><strong>Áudio Atmosférico Procedural:</strong> Efeitos sonoros e ruído via Web Audio API nativo.
+                  </li>
+                </ul>
+              </div>
+
+              <!-- Ações do Card -->
+              <div class="project-actions">
+                <a href="https://terror-gold.vercel.app/" target="_blank" rel="noopener noreferrer"
+                  class="btn btn-project-cctv">
+                  <span>Visitar Turno da Madrugada</span>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3" />
+                  </svg>
+                </a>
+                <button type="button" class="btn btn-details" data-project="turno">
+                  <span>Ver Ficha Técnica</span>
+                </button>
+              </div>
+
+            </div>
+          </article>
+
+          <!-- ===================================================================
+               PROJETO 2 — CHIORIYA BOUTIQUE (MODA & GAMING)
+               =================================================================== -->
+          <article class="project-card project-boutique-card reveal-on-scroll" id="card-chioriya">
+
+            <div class="boutique-media-container">
+              <div class="boutique-logo-showcase">
+                <img src="assets/projects/chioriya_logo.png" alt="Logotipo original de Chioriya Boutique"
+                  class="boutique-logo-img">
+              </div>
+
+              <!-- Vitrine de Skins Verificadas no Projeto Real -->
+              <div class="boutique-skins-preview">
+                <div class="skin-thumb parallax-skin" data-skin-offset="1" title="Yelan — Tranquil Banquet">
+                  <img src="assets/projects/chioriya_yelan.jpg" alt="Skin Yelan Tranquil Banquet">
+                  <span class="skin-name">Yelan</span>
+                </div>
+                <div class="skin-thumb parallax-skin" data-skin-offset="2" title="Ayaka — Springbloom Missive">
+                  <img src="assets/projects/chioriya_ayaka.jpeg" alt="Skin Ayaka Springbloom Missive">
+                  <span class="skin-name">Ayaka</span>
+                </div>
+                <div class="skin-thumb parallax-skin" data-skin-offset="3" title="Ningguang — Orchid's Evening Gown">
+                  <img src="assets/projects/chioriya_ningguang.jpg" alt="Skin Ningguang Orchid">
+                  <span class="skin-name">Ningguang</span>
+                </div>
+              </div>
+              <span class="boutique-caption-note">Capturas de tela reais do catálogo do projeto</span>
+            </div>
+
+            <!-- Conteúdo Descritivo do Projeto 2 -->
+            <div class="project-info boutique-info-panel">
+              <div class="project-category-badge category-boutique">
+                <span>✨ Interface Web // Vitrine Temática de Skins</span>
+              </div>
+
+              <h3 class="project-title boutique-title-text">Chioriya Boutique</h3>
+
+              <p class="project-description">
+                Projeto temático inspirado na estilista Chiori (Genshin Impact). Apresenta uma experiência com telas de
+                cadastro e login com alternância fluida, além de uma vitrine com catálogo de trajes e skins exclusivas
+                para personagens de Genshin Impact e Honkai: Star Rail.
+              </p>
+
+              <!-- Recursos Reais Verificados -->
+              <div class="verified-features-box boutique-features">
+                <span class="box-label">RECURSOS REAIS VERIFICADOS NO SITE:</span>
+                <ul class="features-list">
+                  <li><strong>Interface de Autenticação:</strong> Telas de Cadastro e Login com alternância dinâmica.
+                  </li>
+                  <li><strong>Catálogo Genshin Impact:</strong> Skins de Yelan, Ningguang, Jean, Klee e Ayaka.</li>
+                  <li><strong>Catálogo Honkai Star Rail:</strong> Skins de March 7th, Sparkle, Firefly, Ruan Mei e
+                    Castorice.</li>
+                  <li><strong>Identidade Temática:</strong> Logotipo original e tipografia elegante inspirada no jogo.
+                  </li>
+                </ul>
+              </div>
+
+              <!-- Ações do Card -->
+              <div class="project-actions">
+                <a href="https://chioriya-boutique.vercel.app/" target="_blank" rel="noopener noreferrer"
+                  class="btn btn-project-boutique">
+                  <span>Visitar Chioriya Boutique</span>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3" />
+                  </svg>
+                </a>
+                <button type="button" class="btn btn-details" data-project="chioriya">
+                  <span>Ver Ficha Técnica</span>
+                </button>
+              </div>
+
+            </div>
+          </article>
+
+          <!-- ===================================================================
+               PROJETO 3 — CONSULTORIA REIGEN (RPG NARRATIVO PARANORMAL)
+               =================================================================== -->
+          <article class="project-card project-reigen-card reveal-on-scroll" id="card-reigen">
+
+            <div class="reigen-media-container">
+              <div class="reigen-screen-frame">
+                <img src="assets/projects/reigen_preview.jpg"
+                  alt="Arte e interface temática da Agência Espírita Reigen com estética retrô neon e Mob Psycho 100"
+                  class="reigen-img">
+                <div class="reigen-kanji-tag">霊&魂相談所</div>
+                <div class="reigen-badge-tag">INTERN BADGE // ESTAGIÁRIO</div>
+              </div>
+            </div>
+
+            <!-- Conteúdo Descritivo do Projeto 3 -->
+            <div class="project-info reigen-info-panel">
+              <div class="project-category-badge category-reigen">
+                <span>🔮 RPG Narrativo Web // Minigame de Exorcismo</span>
+              </div>
+
+              <h3 class="project-title reigen-title-text">Agência Espírita Reigen</h3>
+
+              <p class="project-description">
+                Jogo narrativo interativo no universo de Mob Psycho 100. Você assume o papel de estagiário na
+                consultoria paranormal de Reigen Arataka, atende casos sobrenaturais, toma decisões em diálogos
+                ramificados, enfrenta um minigame dinâmico de exorcismo e gerencia métricas de Dinheiro, Reputação e XP
+                para alcançar múltiplos finais e desbloquear conquistas.
+              </p>
+
+              <!-- Recursos Reais Verificados -->
+              <div class="verified-features-box reigen-features">
+                <span class="box-label">RECURSOS REAIS VERIFICADOS NO SITE:</span>
+                <ul class="features-list">
+                  <li><strong>Sistema Narrativo & Escolhas:</strong> Diálogos interativos com Reigen, Mob e clientes.
+                  </li>
+                  <li><strong>Minigame de Exorcismo:</strong> Desafio de reflexo e pontuação para purificar espíritos.
+                  </li>
+                  <li><strong>Gestão de Status:</strong> Níveis de Dinheiro, Reputação, XP e Espíritos Exorcizados.</li>
+                  <li><strong>Sistema de Conquistas & Múltiplos Finais:</strong> Finais calculados com base no
+                    desempenho do estagiário.</li>
+                </ul>
+              </div>
+
+              <!-- Ações do Card -->
+              <div class="project-actions">
+                <a href="https://consultoria-reigen.vercel.app/" target="_blank" rel="noopener noreferrer"
+                  class="btn btn-project-reigen">
+                  <span>Visitar Consultoria Reigen</span>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3" />
+                  </svg>
+                </a>
+                <button type="button" class="btn btn-details" data-project="reigen">
+                  <span>Ver Ficha Técnica</span>
+                </button>
+              </div>
+
+            </div>
+          </article>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         SEÇÃO 4 — MEU PROCESSO CRIATIVO
+         ======================================================================= -->
+    <section class="section-process" id="processo">
+      <div class="container">
+
+        <div class="section-header reveal-on-scroll">
+          <div class="section-tag">
+            <span>Passo a Passo</span>
+          </div>
+          <h2 class="section-title">Da ideia para a tela</h2>
+          <p class="section-subtitle">
+            Uma visão honesta e autoral de como transformo inspirações e rabiscos em projetos que funcionam no
+            navegador.
+          </p>
+        </div>
+
+        <div class="process-timeline">
+
+          <!-- Passo 1: A Ideia Inicial -->
+          <div class="process-step-card reveal-on-scroll delay-1">
+            <div class="step-badge">
+              <span class="step-num">01</span>
+              <span class="step-icon">💭</span>
+            </div>
+            <div class="step-content">
+              <h3 class="step-title">A Ideia Inicial</h3>
+              <p class="step-text">
+                Tudo começa com uma faísca: uma estética que quero explorar (como CCTV retrô, neon de anime ou
+                scrapbook), um jogo que gosto ou uma funcionalidade que tenho curiosidade de construir. Anoto no
+                caderno, junto referências visuais e defino o clima do projeto.
+              </p>
+              <div class="step-tag-pill">[ Rascunhos & Inspiração ]</div>
+            </div>
+          </div>
+
+          <!-- Passo 2: A Construção do Projeto -->
+          <div class="process-step-card reveal-on-scroll delay-2">
+            <div class="step-badge">
+              <span class="step-num">02</span>
+              <span class="step-icon">🛠️</span>
+            </div>
+            <div class="step-content">
+              <h3 class="step-title">A Construção do Projeto</h3>
+              <p class="step-text">
+                Com o conceito desenhado, começo a montar a estrutura semântica em HTML e a lógica principal em
+                JavaScript puro. Gosto de testar primeiro a mecânica central — seja a troca de câmeras, o cálculo de
+                status ou a navegação de abas — antes de tudo.
+              </p>
+              <div class="step-tag-pill">[ Estrutura & Lógica Web ]</div>
+            </div>
+          </div>
+
+          <!-- Passo 3: Os Detalhes Visuais -->
+          <div class="process-step-card reveal-on-scroll delay-3">
+            <div class="step-badge">
+              <span class="step-num">03</span>
+              <span class="step-icon">🎨</span>
+            </div>
+            <div class="step-content">
+              <h3 class="step-title">Os Detalhes Visuais</h3>
+              <p class="step-text">
+                Aqui é onde a identidade ganha vida! Escolho paletas intencionais com bom contraste, tipografias
+                expressivas, efeitos como scanlines ou texturas, além de pequenos sons e transições que tornam a
+                navegação gostosa e imersiva.
+              </p>
+              <div class="step-tag-pill">[ Estética, Cores & Microinterações ]</div>
+            </div>
+          </div>
+
+          <!-- Passo 4: O Resultado Publicado -->
+          <div class="process-step-card reveal-on-scroll delay-4">
+            <div class="step-badge">
+              <span class="step-num">04</span>
+              <span class="step-icon">🚀</span>
+            </div>
+            <div class="step-content">
+              <h3 class="step-title">O Resultado Publicado</h3>
+              <p class="step-text">
+                Deploy do projeto na Vercel para testar o comportamento real em computadores e celulares. Verifico se
+                tudo funciona com precisão, colho impressões de colegas e guardo o que aprendi como bagagem para a
+                próxima ideia.
+              </p>
+              <div class="step-tag-pill">[ Deploy, Testes & Aprendizado ]</div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Rodapé do Processo Criativo -->
+        <div class="process-note-banner reveal-on-scroll">
+          <span class="note-pin">📌</span>
+          <p class="banner-text">
+            <strong>Nota da Ivy:</strong> Este processo reflete minha forma natural de aprender e criar no curso de TI.
+            Todas as etapas são editáveis e continuam evoluindo a cada projeto novo!
+          </p>
+        </div>
+
+        <!-- Detalhe Surpresa Secreto da Rolagem: O Peekaboo Pinky 🐾 -->
+        <div class="peekaboo-pinky-container" id="peekaboo-pinky-container" aria-hidden="true">
+          <div class="peekaboo-pinky-box" id="peekaboo-pinky" title="Psst! Você me achou espiando o diário! ♡">
+            <div class="peekaboo-speech-bubble" id="peekaboo-bubble">
+              <span class="peekaboo-bubble-text">Espiando seu progresso! ♡</span>
+            </div>
+            <div class="peekaboo-avatar">
+              <svg viewBox="0 0 120 100" width="76" height="64" class="peekaboo-svg" aria-hidden="true">
+                <path d="M 22 45 C 16 22 28 8 42 16 C 50 20 52 32 50 40 Z" fill="#FFFFFF" stroke="#F6B8CD" stroke-width="2.5" />
+                <path d="M 26 40 C 22 24 30 14 38 18 C 42 22 44 30 42 36 Z" fill="#FCE4EC" />
+                <path d="M 88 45 C 94 22 82 8 68 16 C 60 20 58 32 60 40 Z" fill="#FFFFFF" stroke="#F6B8CD" stroke-width="2.5" />
+                <path d="M 84 40 C 88 24 80 14 72 18 C 68 22 66 30 68 36 Z" fill="#FCE4EC" />
+                <path d="M 22 52 C 16 66 22 80 38 86 C 52 92 78 92 92 86 C 108 80 114 66 108 52 C 102 38 90 32 65 32 C 40 32 28 38 22 52 Z" fill="#FFFFFF" stroke="#F6B8CD" stroke-width="2.5" />
+                <ellipse cx="36" cy="68" rx="6" ry="4" fill="#F6B8CD" opacity="0.6" />
+                <ellipse cx="84" cy="68" rx="6" ry="4" fill="#F6B8CD" opacity="0.6" />
+                <path d="M 38 60 Q 45 52 52 60" fill="none" stroke="#741F43" stroke-width="2.5" stroke-linecap="round" />
+                <path d="M 68 60 Q 75 52 82 60" fill="none" stroke="#741F43" stroke-width="2.5" stroke-linecap="round" />
+                <polygon points="58,65 62,65 60,67" fill="#E889AA" />
+                <path d="M 55 69 Q 58 72 60 70 Q 62 72 65 69" fill="none" stroke="#741F43" stroke-width="1.8" stroke-linecap="round" />
+                <ellipse cx="44" cy="88" rx="10" ry="7" fill="#FFFFFF" stroke="#F6B8CD" stroke-width="2" />
+                <ellipse cx="76" cy="88" rx="10" ry="7" fill="#FFFFFF" stroke="#F6B8CD" stroke-width="2" />
+              </svg>
+            </div>
+            <div class="peekaboo-washi"></div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         SEÇÃO 5 — CONTATO & MURAL DE RECADINHOS
+         ======================================================================= -->
+    <section class="section-contact" id="contato">
+      <div class="container">
+
+        <div class="section-header reveal-on-scroll">
+          <div class="section-tag">
+            <span>Vamos Conversar?</span>
+          </div>
+          <h2 class="section-title">Vamos trocar ideias?</h2>
+          <p class="section-subtitle">
+            Fique à vontade para mandar uma mensagem, acompanhar meus projetos ou deixar um recadinho carinhoso no meu
+            diário!
+          </p>
+        </div>
+
+        <div class="contact-grid">
+
+          <!-- Coluna 1: Links e Canais de Contato Direto -->
+          <div class="contact-channels-column">
+
+            <div class="contact-info-card reveal-on-scroll reveal-slide-left">
+              <div class="washi-tape tape-top-left"></div>
+              <h3 class="contact-card-title">Canais da Ivy</h3>
+              <p class="contact-card-sub">
+                Links diretos para contato profissional e acadêmico:
+              </p>
+
+              <div class="channels-list">
+
+                <!-- Canal E-mail -->
+                <div class="channel-item">
+                  <div class="channel-icon email-icon">✉️</div>
+                  <div class="channel-details">
+                    <span class="channel-label">E-mail para Contato</span>
+                    <a href="mailto:ivyoliveiram@gmail.com" class="channel-link"
+                      id="email-link">ivyoliveiram@gmail.com</a>
+                    <small class="channel-hint"></small>
+                  </div>
+                  <button type="button" class="btn-copy-email" id="btn-copy-email"
+                    title="Copiar e-mail para a área de transferência">
+                    <span>Copiar</span>
+                  </button>
+                </div>
+
+                <!-- Canal GitHub -->
+                <div class="channel-item">
+                  <div class="channel-icon github-icon">🐙</div>
+                  <div class="channel-details">
+                    <span class="channel-label">Repositórios & Código</span>
+                    <a href="https://github.com/40201-source" target="_blank" rel="noopener noreferrer"
+                      class="channel-link">https://github.com/40201-source</a>
+                    <small class="channel-hint"></small>
+                  </div>
+                </div>
+
+                <!-- Canal Projetos Vercel -->
+                <div class="channel-item">
+                  <div class="channel-icon vercel-icon">▲</div>
+                  <div class="channel-details">
+                    <span class="channel-label">Deploy & Experiências</span>
+                    <span class="channel-link">Vercel Deployments</span>
+                    <small class="channel-hint">[ Turno da Madrugada, Chioriya, Reigen ]</small>
+                  </div>
+                </div>
+
+              </div>
+
+              <!-- Lembrete de Resposta -->
+              <div class="response-note">
+                <span class="heart-dot">♡</span>
+                <span>Sempre animada para trocar ideias sobre desenvolvimento front-end, jogos e novas
+                  tecnologias!</span>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Coluna 2: Mural Interativo de Recadinhos (Guestbook em LocalStorage) -->
+          <div class="guestbook-column">
+
+            <div class="guestbook-card reveal-on-scroll reveal-slide-right">
+              <div class="guestbook-header">
+                <div class="guestbook-title-group">
+                  <span class="guestbook-emoji">📖</span>
+                  <h3 class="guestbook-title">Deixe um recadinho no diário</h3>
+                </div>
+                <span class="guestbook-badge">100% no seu navegador ♡</span>
+              </div>
+
+              <p class="guestbook-desc">
+                Escreva uma mensagem carinhosa para ficar guardada no mural do Pink Diary! Os recados são salvos
+                diretamente no seu navegador.
+              </p>
+
+              <!-- Formulário Interativo -->
+              <form class="guestbook-form" id="guestbook-form">
+                <div class="form-group">
+                  <label for="guest-name" class="form-label">Seu nome ou apelido:</label>
+                  <input type="text" id="guest-name" name="guest-name" class="form-input"
+                    placeholder="Ex: Ana, Colega de TI, Amigo..." required maxlength="30">
+                </div>
+
+                <div class="form-group">
+                  <label for="guest-message" class="form-label">Sua mensagem:</label>
+                  <textarea id="guest-message" name="guest-message" class="form-textarea"
+                    placeholder="Adorei o portfólio! O Turno da Madrugada ficou incrível..." required maxlength="240"
+                    rows="3"></textarea>
+                </div>
+
+                <!-- Escolha de Adesivo -->
+                <div class="form-group">
+                  <label class="form-label">Escolha um adesivo fofo:</label>
+                  <div class="sticker-selector" role="radiogroup" aria-label="Escolha de adesivo">
+                    <label class="sticker-option">
+                      <input type="radio" name="guest-sticker" value="heart" checked>
+                      <span class="sticker-symbol">♡</span>
+                    </label>
+                    <label class="sticker-option">
+                      <input type="radio" name="guest-sticker" value="bow">
+                      <span class="sticker-symbol">🎀</span>
+                    </label>
+                    <label class="sticker-option">
+                      <input type="radio" name="guest-sticker" value="star">
+                      <span class="sticker-symbol">✨</span>
+                    </label>
+                    <label class="sticker-option">
+                      <input type="radio" name="guest-sticker" value="cat">
+                      <span class="sticker-symbol">🐾</span>
+                    </label>
+                  </div>
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-submit-note" id="btn-save-note">
+                  <span>Colar recadinho no diário ♡</span>
+                </button>
+              </form>
+
+              <!-- Mural de Recados Publicados -->
+              <div class="guestbook-board">
+                <h4 class="board-title">Recados no Diário (<span id="notes-count">1</span>):</h4>
+                <div class="board-notes-list" id="board-notes-list" role="feed"
+                  aria-label="Mural de recadinhos do diário">
+                  <!-- Recados dinâmicos serão renderizados aqui pelo script.js -->
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+        <!-- Selo Final de Fechamento do Diário (Fim do Volume 1) -->
+        <div class="diary-end-bookmark reveal-on-scroll" aria-hidden="true">
+          <div class="end-bookmark-ribbon"></div>
+          <div class="end-bookmark-badge">
+            <span class="end-badge-bow">🎀</span>
+            <span class="end-badge-text">Fim do Volume 1 • Obrigada por ler meu diário! ♡</span>
+            <span class="end-badge-sparkles">✨ 🐾 ✨</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- =========================================================================
+       RODAPÉ (FOOTER)
+       ========================================================================= -->
+  <footer class="site-footer">
+    <div class="container footer-container">
+
+      <div class="footer-brand-section">
+        <div class="footer-logo">
+          <span class="footer-bow">🎀</span>
+          <span class="footer-name">Pink Diary</span>
+        </div>
+        <p class="footer-creator">Ivy Oliveira — Estudante de Tecnologia da Informação</p>
+      </div>
+
+      <div class="footer-motto-section">
+        <p class="footer-motto">
+          "Feito com criatividade, curiosidade e um toque de rosa. ♡"
+        </p>
+        <p class="footer-academic-credit">
+          Portfólio escolar de desenvolvimento web • Construído com HTML5, CSS3 e JavaScript puro.
+        </p>
+      </div>
+
+      <div class="footer-nav-section">
+        <ul class="footer-links">
+          <li><a href="#hero">Início</a></li>
+          <li><a href="#sobre-mim">Sobre Mim</a></li>
+          <li><a href="#projetos">Projetos</a></li>
+          <li><a href="#processo">Processo</a></li>
+          <li><a href="#contato">Contato</a></li>
+        </ul>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- =========================================================================
+       MASCOTE FLUTUANTE PINKY (WIDGET INTERATIVO)
+       ========================================================================= -->
+  <aside class="pinky-dock-widget" id="pinky-dock" aria-label="Gatinho mascote Pinky">
+
+    <!-- Balão de Fala do Mascote -->
+    <div class="pinky-speech-bubble" id="pinky-dock-bubble" role="dialog" aria-live="polite">
+      <p class="dock-bubble-text" id="pinky-dock-text">Oi! Eu sou o Pinky! Clica em mim pra trocar uma ideia! ♡</p>
+      <button type="button" class="btn-close-bubble" id="btn-close-pinky-bubble"
+        aria-label="Fechar balão do mascote">✕</button>
+      <span class="dock-bubble-arrow"></span>
+    </div>
+
+    <!-- Botão Mascote com Vetor SVG Original -->
+    <div class="pinky-avatar-btn-wrapper">
+      <button type="button" class="btn-pinky-mascot" id="btn-pinky-mascot" title="Clique no Pinky para conversar!"
+        aria-label="Interagir com o mascote Pinky">
+        <div class="pinky-svg-holder">
+          <svg viewBox="0 0 200 200" width="68" height="68" class="pinky-mini-svg" aria-hidden="true">
+            <defs>
+              <linearGradient id="dockEarGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#FCE4EC" />
+                <stop offset="100%" stop-color="#F6B8CD" />
+              </linearGradient>
+              <radialGradient id="dockEyeGrad" cx="40%" cy="35%" r="65%">
+                <stop offset="0%" stop-color="#9C275A" />
+                <stop offset="60%" stop-color="#741F43" />
+                <stop offset="100%" stop-color="#351421" />
+              </radialGradient>
+            </defs>
+
+            <!-- Tail -->
+            <path class="dock-tail" d="M 55 155 C 30 160 20 135 32 120 C 38 112 48 118 44 128 C 40 138 46 148 65 146"
+              fill="#FFFFFF" stroke="#F6B8CD" stroke-width="3" stroke-linecap="round" />
+
+            <!-- Body & Paws -->
+            <ellipse cx="100" cy="148" rx="42" ry="34" fill="#FFFFFF" stroke="#F6B8CD" stroke-width="2.5" />
+            <ellipse cx="64" cy="168" rx="14" ry="10" fill="#FFFFFF" stroke="#F6B8CD" stroke-width="2" />
+            <circle cx="64" cy="168" r="4" fill="#F6B8CD" opacity="0.6" />
+            <ellipse cx="136" cy="168" rx="14" ry="10" fill="#FFFFFF" stroke="#F6B8CD" stroke-width="2" />
+            <circle cx="136" cy="168" r="4" fill="#F6B8CD" opacity="0.6" />
+            <ellipse cx="88" cy="165" rx="10" ry="14" fill="#FFFFFF" stroke="#F6B8CD" stroke-width="2" />
+            <ellipse cx="112" cy="165" rx="10" ry="14" fill="#FFFFFF" stroke="#F6B8CD" stroke-width="2" />
+
+            <!-- Ears -->
+            <path class="dock-ear-left" d="M 52 75 C 44 42 56 22 75 32 C 85 37 88 56 86 68 Z" fill="#FFFFFF"
+              stroke="#F6B8CD" stroke-width="2.5" />
+            <path d="M 58 68 C 52 46 62 32 73 38 C 79 42 80 54 78 63 Z" fill="url(#dockEarGrad)" />
+
+            <path class="dock-ear-right" d="M 148 75 C 156 42 144 22 125 32 C 115 37 112 56 114 68 Z" fill="#FFFFFF"
+              stroke="#F6B8CD" stroke-width="2.5" />
+            <path d="M 142 68 C 148 46 138 32 127 38 C 121 42 120 54 122 63 Z" fill="url(#dockEarGrad)" />
+
+            <!-- Head -->
+            <path
+              d="M 52 82 C 45 98 48 116 65 125 C 80 133 120 133 135 125 C 152 116 155 98 148 82 C 142 66 128 58 100 58 C 72 58 58 66 52 82 Z"
+              fill="#FFFFFF" stroke="#F6B8CD" stroke-width="2.5" />
+
+            <!-- Cheeks -->
+            <ellipse cx="68" cy="104" rx="8" ry="5" fill="#F6B8CD" opacity="0.6" />
+            <ellipse cx="132" cy="104" rx="8" ry="5" fill="#F6B8CD" opacity="0.6" />
+
+            <!-- Eyes Normal -->
+            <g id="dock-eyes-open">
+              <ellipse cx="78" cy="92" rx="10" ry="12" fill="url(#dockEyeGrad)" />
+              <circle cx="75" cy="88" r="4" fill="#FFFFFF" />
+              <circle cx="82" cy="96" r="2" fill="#FFFFFF" />
+              <path d="M 68 84 Q 76 80 88 84" fill="none" stroke="#351421" stroke-width="2" stroke-linecap="round" />
+
+              <ellipse cx="122" cy="92" rx="10" ry="12" fill="url(#dockEyeGrad)" />
+              <circle cx="119" cy="88" r="4" fill="#FFFFFF" />
+              <circle cx="126" cy="96" r="2" fill="#FFFFFF" />
+              <path d="M 112 84 Q 124 80 132 84" fill="none" stroke="#351421" stroke-width="2" stroke-linecap="round" />
+            </g>
+
+            <!-- Eyes Happy / Wink (Alternado por JS) -->
+            <g id="dock-eyes-happy" style="display: none;">
+              <path d="M 68 94 Q 78 84 88 94" fill="none" stroke="#741F43" stroke-width="3.5" stroke-linecap="round" />
+              <path d="M 112 94 Q 122 84 132 94" fill="none" stroke="#741F43" stroke-width="3.5"
+                stroke-linecap="round" />
+            </g>
+
+            <!-- Nose & Mouth -->
+            <polygon points="98,100 102,100 100,103" fill="#E889AA" />
+            <path d="M 94 105 Q 97 109 100 106 Q 103 109 106 105" fill="none" stroke="#741F43" stroke-width="2"
+              stroke-linecap="round" />
+
+            <!-- Collar & Ribbon -->
+            <path d="M 72 124 Q 100 136 128 124 Q 129 128 126 131 Q 100 142 74 131 Z" fill="#741F43" />
+            <circle cx="100" cy="133" r="4" fill="#FFB300" />
+          </svg>
+        </div>
+      </button>
+
+      <!-- Botão para Minimizar Mascote se o usuário preferir -->
+      <button type="button" class="btn-minimize-pinky" id="btn-minimize-pinky" title="Ocultar ou restaurar mascote"
+        aria-label="Minimizar mascote">
+        <span class="minimize-icon">−</span>
+      </button>
+    </div>
+
+  </aside>
+
+  <!-- =========================================================================
+       BOTÃO VOLTAR AO TOPO
+       ========================================================================= -->
+  <button type="button" class="btn-back-to-top" id="btn-back-to-top" title="Voltar ao início da página"
+    aria-label="Voltar ao topo">
+    <span class="top-arrow">↑</span>
+    <span class="top-heart">♡</span>
+  </button>
+
+  <!-- =========================================================================
+       MODAL DE EASTER EGG (SEGREDO DO PINK DIARY)
+       ========================================================================= -->
+  <div class="modal-backdrop" id="modal-easter-egg" role="dialog" aria-modal="true" aria-labelledby="egg-title" hidden>
+    <div class="modal-dialog egg-dialog">
+      <div class="washi-tape tape-top-center"></div>
+
+      <div class="egg-envelope-icon">💌</div>
+
+      <h3 class="egg-title" id="egg-title">Você encontrou um segredinho do Pink Diary! ♡</h3>
+
+      <div class="egg-letter-body">
+        <p>
+          "Obrigada por ter tanta curiosidade e explorar cada cantinho deste portfólio! A Ivy dedicou muito carinho,
+          horas de estudo e testes para deixar esse espaço vivo, autêntico e com a cara dela."
+        </p>
+        <div class="egg-stickers-row">
+          <span>🎀</span>
+          <span>🐾</span>
+          <span>✨</span>
+          <span>💖</span>
+          <span>☕</span>
+        </div>
+        <p class="egg-ps">
+          <em>P.S.: Continue sendo curioso(a) — a curiosidade é o superpoder de quem aprende tecnologia!</em>
+        </p>
+      </div>
+
+      <button type="button" class="btn btn-primary btn-close-egg" id="btn-close-egg">
+        <span>Fechar segredinho ♡</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       MODAL DE DETALHES TÉCNICOS DOS PROJETOS
+       ========================================================================= -->
+  <div class="modal-backdrop" id="modal-project-details" role="dialog" aria-modal="true"
+    aria-labelledby="project-modal-title" hidden>
+    <div class="modal-dialog project-modal-dialog">
+      <div class="modal-header">
+        <div class="modal-title-group">
+          <span class="modal-badge" id="project-modal-badge">Projeto Real</span>
+          <h3 class="modal-title" id="project-modal-title">Título do Projeto</h3>
+        </div>
+        <button type="button" class="btn-close-modal" id="btn-close-project-modal"
+          aria-label="Fechar janela de detalhes">✕</button>
+      </div>
+
+      <div class="modal-body" id="project-modal-body">
+        <!-- O conteúdo será injetado dinamicamente pelo script.js com base no projeto clicado -->
+      </div>
+
+      <div class="modal-footer">
+        <a href="#" target="_blank" rel="noopener noreferrer" class="btn btn-primary" id="project-modal-link">
+          <span>Acessar Projeto Publicado ↗</span>
+        </a>
+        <button type="button" class="btn btn-secondary" id="btn-modal-back">
+          <span>Fechar</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Notificação Toast Flutuante (Feedback Visual) -->
+  <div class="toast-notification" id="toast-notification" role="status" aria-live="polite">
+    <span class="toast-icon" id="toast-icon">♡</span>
+    <span class="toast-message" id="toast-message">Notificação</span>
+  </div>
+
+  <!-- Container de Notificações de Conquistas Desbloqueadas -->
+  <div class="achievements-toast-container" id="achievements-toast-container" aria-live="polite"></div>
+
+  <!-- =========================================================================
+       MODAL DE CONQUISTAS SECRETAS (MINHAS CONQUISTAS)
+       ========================================================================= -->
+  <div class="modal-backdrop" id="modal-achievements" role="dialog" aria-modal="true"
+    aria-labelledby="achievements-modal-title" hidden>
+    <div class="modal-dialog achievements-modal-dialog">
+      <div class="washi-tape tape-top-center"></div>
+
+      <div class="modal-header">
+        <div class="modal-title-group">
+          <span class="modal-badge">Diário de Conquistas & Segredos</span>
+          <h3 class="modal-title" id="achievements-modal-title">Minhas Conquistas 🏆</h3>
+        </div>
+        <button type="button" class="btn-close-modal" id="btn-close-achievements-modal"
+          aria-label="Fechar galeria de conquistas">✕</button>
+      </div>
+
+      <div class="modal-body">
+        <!-- Barra de Progresso Geral -->
+        <div class="achievements-progress-card">
+          <div class="achievements-progress-header">
+            <span>Progresso da Exploração:</span>
+            <span id="achievements-progress-text">0 de 9 descobertas</span>
+          </div>
+          <div class="achievements-progress-bar-track" role="progressbar" aria-valuenow="0" aria-valuemin="0"
+            aria-valuemax="9" id="achievements-progress-bar">
+            <div class="achievements-progress-bar-fill" id="achievements-progress-fill"></div>
+          </div>
+          <small style="font-size: 0.78rem; color: var(--rosa-medio); font-family: var(--fonte-manuscrita);">
+            ✦ Continue explorando, lendo os projetos e interagindo com os detalhes para desbloquear segredos!
+          </small>
+        </div>
+
+        <!-- Lista das Conquistas -->
+        <div class="achievements-list" id="achievements-list" role="list">
+          <!-- Renderizado dinamicamente pelo script.js -->
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" id="btn-achievements-close-footer">
+          <span>Continuar Explorando ♡</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Script Principal de Interatividade -->
+  <script src="script.js"></script>
+</body>
+
+</html>
